@@ -1,0 +1,26 @@
+{
+  "configurations": [
+    {
+      "name": "ESP-IDF",
+      "compilerPath": "${config:idf.toolsPathWin}\\tools\\xtensa-esp-elf\\esp-14.2.0_20241119\\xtensa-esp-elf\\bin\\xtensa-esp32-elf-gcc.exe",
+      "includePath": [
+        "${config:idf.espIdfPathWin}/components/**",
+        "${workspaceFolder}/**",
+        "${config:idf.espIdfPathWin}/components/freertos/FreeRTOS-Kernel/include",
+        "${config:idf.espIdfPathWin}/components/esp_common/include",
+        "${config:idf.espIdfPathWin}/components/esp_system/include",
+        "${config:idf.espIdfPathWin}/components/log/include",
+        "${config:idf.espIdfPathWin}/components/nvs_flash/include",
+        "${workspaceFolder}/components/**"   // Add this line for component headers
+      ],
+      "browse": {
+        "path": [
+          "${config:idf.espIdfPathWin}/components",
+          "${workspaceFolder}"
+        ],
+        "limitSymbolsToIncludedHeaders": false
+      }
+    }
+  ],
+  "version": 4
+}

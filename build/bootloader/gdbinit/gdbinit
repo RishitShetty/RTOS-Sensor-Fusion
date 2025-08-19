@@ -1,0 +1,2 @@
+source C:/Users/user/espIDF Projects/rtos-sensor-fusion/build/bootloader/gdbinit/symbols
+source C:/Users/user/espIDF Projects/rtos-sensor-fusion/build/bootloader/gdbinit/connect
