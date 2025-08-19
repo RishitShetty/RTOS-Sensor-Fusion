@@ -1,53 +1,60 @@
-| Supported Targets | ESP32 | ESP32-C2 | ESP32-C3 | ESP32-C5 | ESP32-C6 | ESP32-C61 | ESP32-H2 | ESP32-H21 | ESP32-H4 | ESP32-P4 | ESP32-S2 | ESP32-S3 | Linux |
-| ----------------- | ----- | -------- | -------- | -------- | -------- | --------- | -------- | --------- | -------- | -------- | -------- | -------- | ----- |
+System Architecture (Core RTOS Concepts)
+Tasks (prioritized):
 
-# Hello World Example
+High-priority Control Task (e.g., 1kHz or 500Hz).
 
-Starts a FreeRTOS task to print "Hello World".
+Sensor Tasks A/B (e.g., 1kHz and 400Hz) driven by hardware timers or software timer callbacks that release semaphores.
 
-(See the README.md file in the upper level 'examples' directory for more information about examples.)
+Sensor Fusion Task (e.g., 100Hz) consuming from queues.
 
-## How to use example
+Logger Task (medium-low) draining a lock-free ring buffer to network.
 
-Follow detailed instructions provided specifically for this example.
+CLI/Command Task (low) for runtime tuning and diagnostics.
 
-Select the instructions depending on Espressif chip installed on your development board:
+Watchdog/Health Task to monitor deadlines and reset subsystems.
 
-- [ESP32 Getting Started Guide](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html)
-- [ESP32-S2 Getting Started Guide](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s2/get-started/index.html)
+Synchronization:
 
+Queues for sensor data to fusion.
 
-## Example folder contents
+Binary semaphores for ISR-to-task synchronization.
 
-The project **hello_world** contains one source file in C language [hello_world_main.c](main/hello_world_main.c). The file is located in folder [main](main).
+Counting semaphore or event groups for multi-sensor availability.
 
-ESP-IDF projects are built using CMake. The project build configuration is contained in `CMakeLists.txt` files that provide set of directives and instructions describing the project's source files and targets (executable, library, or both).
+Mutex with priority inheritance for shared resources (simulate a shared “bus”).
 
-Below is short explanation of remaining files in the project folder.
+Timing/Determinism:
 
-```
-├── CMakeLists.txt
-├── pytest_hello_world.py      Python script used for automated testing
-├── main
-│   ├── CMakeLists.txt
-│   └── hello_world_main.c
-└── README.md                  This is the file you are currently reading
-```
+Use vTaskDelayUntil for periodic tasks.
 
-For more information on structure and contents of ESP-IDF projects, please refer to Section [Build System](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/build-system.html) of the ESP-IDF Programming Guide.
+Use high-resolution timers and record jitter; log histogram.
 
-## Troubleshooting
+Memory:
 
-* Program upload failure
+Static task allocation for critical tasks.
 
-    * Hardware connection is not correct: run `idf.py -p PORT monitor`, and reboot your board to see if there are any output logs.
-    * The baud rate for downloading is too high: lower your baud rate in the `menuconfig` menu, and try again.
+Bounded queues and buffers; demonstrate failure/overflow handling.
 
-## Technical support and feedback
+Fault Tolerance:
 
-Please use the following feedback channels:
+Software watchdogs per task; global watchdog.
 
-* For technical queries, go to the [esp32.com](https://esp32.com/) forum
-* For a feature request or bug report, create a [GitHub issue](https://github.com/espressif/esp-idf/issues)
+Panic/recovery path; persistent error counters in NVS.
 
-We will get back to you as soon as possible.
+Connectivity:
+
+Wi‑Fi + TCP server or WebSocket to stream telemetry; simple JSON lines.
+
+OTA + Config:
+
+ESP-IDF OTA example integrated; runtime-configurable rates/priors saved to NVS.
+
+Testing:
+
+Synthetic load task to induce contention.
+
+Priority inversion demo with/without mutex PI.
+
+Automated timing tests: assert jitter bounds and queue latencies.
+
+Unit tests for fusion and control math
