@@ -1,0 +1,30 @@
+Command: ninja all
+[1/12] Performing build step for 'bootloader'
+[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D "C:\Users\user\espIDF Projects\rtos-sensor-fusion\build\bootloader\esp-idf\esptool_py" && C:\Users\user\.espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:/Users/user/esp/v5.5/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 "C:/Users/user/espIDF Projects/rtos-sensor-fusion/build/bootloader/bootloader.bin""
+Bootloader binary size 0x6650 bytes. 0x9b0 bytes (9%) free.
+[2/12] No install step for 'bootloader'
+[3/12] Completed 'bootloader'
+[4/12] Building C object esp-idf/sensors/CMakeFiles/__idf_sensors.dir/sensor.c.obj
+C:/Users/user/espIDF Projects/rtos-sensor-fusion/components/sensors/sensor.c:9:20: warning: 'SENSORS' defined but not used [-Wunused-variable]
+    9 | static const char *SENSORS = "SENSORS";
+      |                    ^~~~~~~
+C:/Users/user/espIDF Projects/rtos-sensor-fusion/components/sensors/sensor.c:8:20: warning: 'TAG_B' defined but not used [-Wunused-variable]
+    8 | static const char *TAG_B = "SENSOR_B";
+      |                    ^~~~~
+C:/Users/user/espIDF Projects/rtos-sensor-fusion/components/sensors/sensor.c:7:20: warning: 'TAG_A' defined but not used [-Wunused-variable]
+    7 | static const char *TAG_A = "SENSOR_A";
+      |                    ^~~~~
+[5/12] Linking C static library esp-idf\sensors\libsensors.a
+[6/12] Linking C static library esp-idf\fusion\libfusion.a
+[7/12] Linking C static library esp-idf\main\libmain.a
+[8/12] Generating esp-idf/esp_system/ld/sections.ld
+[9/12] Building C object CMakeFiles/rtos-sensor-fusion.elf.dir/project_elf_src_esp32.c.obj
+[10/12] Linking CXX executable rtos-sensor-fusion.elf
+[11/12] Generating binary image from built executable
+esptool.py v4.10.dev2
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
+Generated C:/Users/user/espIDF Projects/rtos-sensor-fusion/build/rtos-sensor-fusion.bin
+[12/12] C:\WINDOWS\system32\cmd.exe /C "cd /D "C:\Users\user\espIDF Projects\rtos-sensor-fusion\build\esp-idf\esptool_py" && C:\Users\user\.espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:/Users/user/esp/v5.5/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app "C:/Users/user/espIDF Projects/rtos-sensor-fusion/build/partition_table/partition-table.bin" "C:/Users/user/espIDF Projects/rtos-sensor-fusion/build/rtos-sensor-fusion.bin""
+rtos-sensor-fusion.bin binary size 0x2cf10 bytes. Smallest app partition is 0x100000 bytes. 0xd30f0 bytes (82%) free.

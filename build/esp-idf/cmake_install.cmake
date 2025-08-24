@@ -194,6 +194,16 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("C:/Users/user/espIDF Projects/rtos-sensor-fusion/build/esp-idf/sensors/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Users/user/espIDF Projects/rtos-sensor-fusion/build/esp-idf/fusion/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("C:/Users/user/espIDF Projects/rtos-sensor-fusion/build/esp-idf/main/cmake_install.cmake")
 endif()
 

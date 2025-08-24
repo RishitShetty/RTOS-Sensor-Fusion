@@ -29,5 +29,7 @@ set substitute-path /COMPONENT_PTHREAD_DIR C:/Users/user/esp/v5.5/esp-idf/compon
 set substitute-path /COMPONENT_CXX_DIR C:/Users/user/esp/v5.5/esp-idf/components/cxx
 set substitute-path /COMPONENT_RTOS_CORE_DIR C:/Users/user/espIDF Projects/rtos-sensor-fusion/components/rtos_core
 set substitute-path /COMPONENT_NVS_FLASH_DIR C:/Users/user/esp/v5.5/esp-idf/components/nvs_flash
+set substitute-path /COMPONENT_SENSORS_DIR C:/Users/user/espIDF Projects/rtos-sensor-fusion/components/sensors
+set substitute-path /COMPONENT_FUSION_DIR C:/Users/user/espIDF Projects/rtos-sensor-fusion/components/fusion
 set substitute-path /COMPONENT_MAIN_DIR C:/Users/user/espIDF Projects/rtos-sensor-fusion/main
 set substitute-path /TOOLCHAIN C:/Users/user/.espressif/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf

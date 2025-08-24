@@ -58,5 +58,9 @@ C:/Users/user/espIDF Projects/rtos-sensor-fusion/build/esp-idf/pthread/libpthrea
 C:/Users/user/espIDF Projects/rtos-sensor-fusion/build/esp-idf/cxx/libcxx.a
 C:/Users/user/espIDF Projects/rtos-sensor-fusion/build/esp-idf/rtos_core/librtos_core.a
 C:/Users/user/espIDF Projects/rtos-sensor-fusion/build/esp-idf/nvs_flash/libnvs_flash.a
-C:/Users/user/espIDF Projects/rtos-sensor-fusion/build/esp-idf/main/libmain.a
+C:/Users/user/espIDF Projects/rtos-sensor-fusion/build/esp-idf/sensors/libsensors.a
 C:/Users/user/espIDF Projects/rtos-sensor-fusion/build/esp-idf/rtos_core/librtos_core.a
+C:/Users/user/espIDF Projects/rtos-sensor-fusion/build/esp-idf/fusion/libfusion.a
+C:/Users/user/espIDF Projects/rtos-sensor-fusion/build/esp-idf/sensors/libsensors.a
+C:/Users/user/espIDF Projects/rtos-sensor-fusion/build/esp-idf/main/libmain.a
+C:/Users/user/espIDF Projects/rtos-sensor-fusion/build/esp-idf/fusion/libfusion.a

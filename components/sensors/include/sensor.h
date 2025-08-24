@@ -2,6 +2,7 @@
 #define SENSOR_H
 
 #include "rtos_core.h"
+#include "freertos/FreeRTOS.h"
 #include "freertos/semphr.h"
 
 #define SENSOR_A_AMPLITUDE      100.0f
@@ -11,9 +12,15 @@
 #define SENSOR_B_AMPLITUDE      200.0f
 #define SENSOR_B_FREQUENCY      0.3f    // Hz
 #define SENSOR_B_NOISE_LEVEL    8.0f
+
 //queue size
-#define SENSOR_QUEUE_SIZE 10
+#define SENSOR_QUEUE_SIZE 50
+
 //define shared handles
+extern TaskHandle_t sensor_a_task_handle;
+extern TaskHandle_t sensor_b_task_handle;
+
+//define queues
 extern QueueHandle_t sensor_a_queue;
 extern QueueHandle_t sensor_b_queue;
 //Timer handler

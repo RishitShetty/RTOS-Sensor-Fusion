@@ -1,6 +1,6 @@
 #include "fusion.h"
-#include "sensor.h"
-#include "rtos_core.h"
+#include "esp_log.h"
+#include <stdlib.h>
 
 static const char *TAG = "FUSION";
 
@@ -10,8 +10,8 @@ QueueHandle_t fusion_output_queue = NULL;
 void fusion_task(void *pvParameters){
     sensor_data_t sensor_a_data, sensor_b_data;
     fusion_data_t fusion_output_data;
-    TickType_t timeout_ticks = pdMS_TO_TICKS(50);//convert ms to ticks as FREERTOS reads ticks only, timeout of 50ms
-    ESP_LOGI(TAG, "Fusion Task commenced");
+    TickType_t timeout_ticks = pdMS_TO_TICKS(1);//convert ms to ticks as FREERTOS reads ticks only, timeout of 50ms
+    // ESP_LOGI(TAG, "Fusion Task commenced");
     uint64_t last_wake_time = rtos_get_time_us();
     
     while(1){
@@ -34,19 +34,20 @@ void fusion_task(void *pvParameters){
         //to perform fusion
         float fused_value = 0.0f;
         if(got_sensor_a && got_sensor_b){
+            // ESP_LOGI(TAG, "Both sensor data available");
             fused_value = (sensor_a_data.value*0.6f + 0.4f*sensor_b_data.value);
         }
         else if(got_sensor_a){
             fused_value = sensor_a_data.value;
-            ESP_LOGI(TAG, "Only sensor a data");
+            // ESP_LOGI(TAG, "Only sensor a data");
         }
         else if(got_sensor_b){
             fused_value = sensor_b_data.value;
-            ESP_LOGI(TAG, "Only sensor b data");
+            // ESP_LOGI(TAG, "Only sensor b data");
         }
         else{
             fused_value = fusion_stats.last_fusion_value;
-            ESP_LOGI(TAG, "No sensor data gathered");
+            // ESP_LOGI(TAG, "No sensor data gathered");
         }
 
         //output data
@@ -54,8 +55,8 @@ void fusion_task(void *pvParameters){
         fusion_output_data.fusion_value = fused_value;
         fusion_output_data.control_value = 0.0f;
         //we need to send data to queue
-        if(xQueueSend(fusion_output_queue, &fusion_output_data, 0) == pdTRUE){
-            ESP_LOGW(TAG, "Warning Queue is full");
+        if(xQueueSend(fusion_output_queue, &fusion_output_data, 0) != pdTRUE){
+            // ESP_LOGW(TAG, "Warning Queue is full");
         }
 
         //statictics
@@ -66,24 +67,24 @@ void fusion_task(void *pvParameters){
             fusion_stats.maximum_execution_time = execution_time;
         }
         //log every 100 cycles
-        if(fusion_stats.fusion_cycles % 100 == 0){
-            LOGI(TAG, " Cycles = %lu, Sensor A timeouts = %lu, Sensor B timeouts = %lu, Max execution time = %llu, last fused value = %lu", fusion_stats.fusion_cycles,fusion_stats.sensor_a_timeouts, fusion_stats.sensor_b_timeouts, fusion_stats.maximum_execution_time, fusion_stats.last_fusion_value);
+        if(fusion_stats.fusion_cycles % 5000 == 0){
+            // ESP_LOGI(TAG, " Cycles = %lu, Sensor A timeouts = %lu, Sensor B timeouts = %lu, Max execution time = %llu, last fused value = %.2f", fusion_stats.fusion_cycles,fusion_stats.sensor_a_timeouts, fusion_stats.sensor_b_timeouts, fusion_stats.maximum_execution_time, fusion_stats.last_fusion_value);
         }
         delay_until_us(&last_wake_time, FUSION_PERIOD_US);
     }
 }
 
 esp_err_t fusion_init(void){
-    ESP_LOGI(TAG, "Initializing the fusion task");
+    // ESP_LOGI(TAG, "Initializing the fusion task");
     //create queue
     fusion_output_queue = xQueueCreate(5, sizeof(fusion_data_t));
     if(!(fusion_output_queue)){
-        ESP_LOGE(TAG, "failed to create queue");
+        // ESP_LOGE(TAG, "failed to create queue");
         return ESP_FAIL;
     }
     //create the Task now 
-    xTaskCreate(fusion_task, "FUSION_TASK", FUSION_TASK_STACK_SIZE, NULL, FUSION_TASK_PRIORITY, NULL, &fusion_task_handle);
-    ESP_LOGI(TAG, "Fusion task is initialized");
+    xTaskCreate(fusion_task, "FUSION_TASK", FUSION_TASK_STACK_SIZE, NULL, FUSION_TASK_PRIORITY, &fusion_task_handle);
+    // ESP_LOGI(TAG, "Fusion task is initialized");
     return ESP_OK;
 }
 

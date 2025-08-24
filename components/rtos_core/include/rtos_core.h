@@ -1,6 +1,8 @@
 #ifndef RTOS_CORE_H
 #define RTOS_CORE_H
-
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/queue.h"
@@ -9,6 +11,12 @@
 #include "esp_timer.h"
 #include "esp_log.h"
 #include "esp_err.h"
+#include "stdint.h"
+
+//call task handles
+extern TaskHandle_t control_task_handle;
+extern TaskHandle_t fusion_task_handle;
+extern TaskHandle_t cli_task_handle;
 //define priorities
 
 #define CONTROL_TASK_PRIORITY 10
@@ -64,4 +72,4 @@ uint64_t rtos_get_time_us(void);
 
 void delay_until_us(uint64_t *last_wake_time, uint64_t period_us);
 
-#endif 
+#endif

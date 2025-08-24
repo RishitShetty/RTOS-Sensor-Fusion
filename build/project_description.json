@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "rtos-sensor-fusion",
-    "project_version":    "1",
+    "project_version":    "efe5d0d-dirty",
     "project_path":       "C:/Users/user/espIDF Projects/rtos-sensor-fusion",
     "idf_path":           "C:/Users/user/esp/v5.5/esp-idf",
     "build_dir":          "C:/Users/user/espIDF Projects/rtos-sensor-fusion/build",
@@ -25,8 +25,8 @@
         "COMPONENT_KCONFIGS_PROJBUILD" : "C:/Users/user/esp/v5.5/esp-idf/components/bootloader/Kconfig.projbuild;C:/Users/user/esp/v5.5/esp-idf/components/esp_app_format/Kconfig.projbuild;C:/Users/user/esp/v5.5/esp-idf/components/esp_rom/Kconfig.projbuild;C:/Users/user/esp/v5.5/esp-idf/components/esptool_py/Kconfig.projbuild;C:/Users/user/esp/v5.5/esp-idf/components/partition_table/Kconfig.projbuild"
     },
     "common_component_reqs": [ "cxx", "newlib", "freertos", "esp_hw_support", "heap", "log", "soc", "hal", "esp_rom", "esp_common", "esp_system", "xtensa" ],
-    "build_components" : [ "app_update", "bootloader", "bootloader_support", "cxx", "efuse", "esp_app_format", "esp_bootloader_format", "esp_common", "esp_driver_gpio", "esp_hw_support", "esp_mm", "esp_partition", "esp_pm", "esp_rom", "esp_security", "esp_system", "esp_timer", "esptool_py", "freertos", "hal", "heap", "log", "main", "mbedtls", "newlib", "nvs_flash", "partition_table", "pthread", "rtos_core", "soc", "spi_flash", "xtensa", "" ],
-    "build_component_paths" : [ "C:/Users/user/esp/v5.5/esp-idf/components/app_update", "C:/Users/user/esp/v5.5/esp-idf/components/bootloader", "C:/Users/user/esp/v5.5/esp-idf/components/bootloader_support", "C:/Users/user/esp/v5.5/esp-idf/components/cxx", "C:/Users/user/esp/v5.5/esp-idf/components/efuse", "C:/Users/user/esp/v5.5/esp-idf/components/esp_app_format", "C:/Users/user/esp/v5.5/esp-idf/components/esp_bootloader_format", "C:/Users/user/esp/v5.5/esp-idf/components/esp_common", "C:/Users/user/esp/v5.5/esp-idf/components/esp_driver_gpio", "C:/Users/user/esp/v5.5/esp-idf/components/esp_hw_support", "C:/Users/user/esp/v5.5/esp-idf/components/esp_mm", "C:/Users/user/esp/v5.5/esp-idf/components/esp_partition", "C:/Users/user/esp/v5.5/esp-idf/components/esp_pm", "C:/Users/user/esp/v5.5/esp-idf/components/esp_rom", "C:/Users/user/esp/v5.5/esp-idf/components/esp_security", "C:/Users/user/esp/v5.5/esp-idf/components/esp_system", "C:/Users/user/esp/v5.5/esp-idf/components/esp_timer", "C:/Users/user/esp/v5.5/esp-idf/components/esptool_py", "C:/Users/user/esp/v5.5/esp-idf/components/freertos", "C:/Users/user/esp/v5.5/esp-idf/components/hal", "C:/Users/user/esp/v5.5/esp-idf/components/heap", "C:/Users/user/esp/v5.5/esp-idf/components/log", "C:/Users/user/espIDF Projects/rtos-sensor-fusion/main", "C:/Users/user/esp/v5.5/esp-idf/components/mbedtls", "C:/Users/user/esp/v5.5/esp-idf/components/newlib", "C:/Users/user/esp/v5.5/esp-idf/components/nvs_flash", "C:/Users/user/esp/v5.5/esp-idf/components/partition_table", "C:/Users/user/esp/v5.5/esp-idf/components/pthread", "C:/Users/user/espIDF Projects/rtos-sensor-fusion/components/rtos_core", "C:/Users/user/esp/v5.5/esp-idf/components/soc", "C:/Users/user/esp/v5.5/esp-idf/components/spi_flash", "C:/Users/user/esp/v5.5/esp-idf/components/xtensa", "" ],
+    "build_components" : [ "app_update", "bootloader", "bootloader_support", "cxx", "efuse", "esp_app_format", "esp_bootloader_format", "esp_common", "esp_driver_gpio", "esp_hw_support", "esp_mm", "esp_partition", "esp_pm", "esp_rom", "esp_security", "esp_system", "esp_timer", "esptool_py", "freertos", "fusion", "hal", "heap", "log", "main", "mbedtls", "newlib", "nvs_flash", "partition_table", "pthread", "rtos_core", "sensors", "soc", "spi_flash", "xtensa", "" ],
+    "build_component_paths" : [ "C:/Users/user/esp/v5.5/esp-idf/components/app_update", "C:/Users/user/esp/v5.5/esp-idf/components/bootloader", "C:/Users/user/esp/v5.5/esp-idf/components/bootloader_support", "C:/Users/user/esp/v5.5/esp-idf/components/cxx", "C:/Users/user/esp/v5.5/esp-idf/components/efuse", "C:/Users/user/esp/v5.5/esp-idf/components/esp_app_format", "C:/Users/user/esp/v5.5/esp-idf/components/esp_bootloader_format", "C:/Users/user/esp/v5.5/esp-idf/components/esp_common", "C:/Users/user/esp/v5.5/esp-idf/components/esp_driver_gpio", "C:/Users/user/esp/v5.5/esp-idf/components/esp_hw_support", "C:/Users/user/esp/v5.5/esp-idf/components/esp_mm", "C:/Users/user/esp/v5.5/esp-idf/components/esp_partition", "C:/Users/user/esp/v5.5/esp-idf/components/esp_pm", "C:/Users/user/esp/v5.5/esp-idf/components/esp_rom", "C:/Users/user/esp/v5.5/esp-idf/components/esp_security", "C:/Users/user/esp/v5.5/esp-idf/components/esp_system", "C:/Users/user/esp/v5.5/esp-idf/components/esp_timer", "C:/Users/user/esp/v5.5/esp-idf/components/esptool_py", "C:/Users/user/esp/v5.5/esp-idf/components/freertos", "C:/Users/user/espIDF Projects/rtos-sensor-fusion/components/fusion", "C:/Users/user/esp/v5.5/esp-idf/components/hal", "C:/Users/user/esp/v5.5/esp-idf/components/heap", "C:/Users/user/esp/v5.5/esp-idf/components/log", "C:/Users/user/espIDF Projects/rtos-sensor-fusion/main", "C:/Users/user/esp/v5.5/esp-idf/components/mbedtls", "C:/Users/user/esp/v5.5/esp-idf/components/newlib", "C:/Users/user/esp/v5.5/esp-idf/components/nvs_flash", "C:/Users/user/esp/v5.5/esp-idf/components/partition_table", "C:/Users/user/esp/v5.5/esp-idf/components/pthread", "C:/Users/user/espIDF Projects/rtos-sensor-fusion/components/rtos_core", "C:/Users/user/espIDF Projects/rtos-sensor-fusion/components/sensors", "C:/Users/user/esp/v5.5/esp-idf/components/soc", "C:/Users/user/esp/v5.5/esp-idf/components/spi_flash", "C:/Users/user/esp/v5.5/esp-idf/components/xtensa", "" ],
     "build_component_info" : {
         "app_update": {
             "alias": "idf::app_update",
@@ -313,6 +313,21 @@
             "sources": [ "C:/Users/user/esp/v5.5/esp-idf/components/freertos/heap_idf.c", "C:/Users/user/esp/v5.5/esp-idf/components/freertos/app_startup.c", "C:/Users/user/esp/v5.5/esp-idf/components/freertos/port_common.c", "C:/Users/user/esp/v5.5/esp-idf/components/freertos/port_systick.c", "C:/Users/user/esp/v5.5/esp-idf/components/freertos/FreeRTOS-Kernel/list.c", "C:/Users/user/esp/v5.5/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c", "C:/Users/user/esp/v5.5/esp-idf/components/freertos/FreeRTOS-Kernel/tasks.c", "C:/Users/user/esp/v5.5/esp-idf/components/freertos/FreeRTOS-Kernel/timers.c", "C:/Users/user/esp/v5.5/esp-idf/components/freertos/FreeRTOS-Kernel/event_groups.c", "C:/Users/user/esp/v5.5/esp-idf/components/freertos/FreeRTOS-Kernel/stream_buffer.c", "C:/Users/user/esp/v5.5/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c", "C:/Users/user/esp/v5.5/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/portasm.S", "C:/Users/user/esp/v5.5/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_init.c", "C:/Users/user/esp/v5.5/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_overlay_os_hook.c", "C:/Users/user/esp/v5.5/esp-idf/components/freertos/esp_additions/freertos_compatibility.c", "C:/Users/user/esp/v5.5/esp-idf/components/freertos/esp_additions/idf_additions_event_groups.c", "C:/Users/user/esp/v5.5/esp-idf/components/freertos/esp_additions/idf_additions.c" ],
             "include_dirs": [ "config/include", "config/include/freertos", "config/xtensa/include", "FreeRTOS-Kernel/include", "FreeRTOS-Kernel/portable/xtensa/include", "FreeRTOS-Kernel/portable/xtensa/include/freertos", "esp_additions/include" ]
         },
+        "fusion": {
+            "alias": "idf::fusion",
+            "target": "___idf_fusion",
+            "prefix": "idf",
+            "dir": "C:/Users/user/espIDF Projects/rtos-sensor-fusion/components/fusion",
+            "type": "LIBRARY",
+            "lib": "__idf_fusion",
+            "reqs": [ "sensors", "rtos_core", "freertos" ],
+            "priv_reqs": [],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "file": "C:/Users/user/espIDF Projects/rtos-sensor-fusion/build/esp-idf/fusion/libfusion.a",
+            "sources": [ "C:/Users/user/espIDF Projects/rtos-sensor-fusion/components/fusion/fusion.c" ],
+            "include_dirs": [ "include" ]
+        },
         "hal": {
             "alias": "idf::hal",
             "target": "___idf_hal",
@@ -366,7 +381,7 @@
             "type": "LIBRARY",
             "lib": "__idf_main",
             "reqs": [],
-            "priv_reqs": [ "rtos_core", "nvs_flash", "freertos" ],
+            "priv_reqs": [ "rtos_core", "nvs_flash", "freertos", "sensors", "fusion" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "C:/Users/user/espIDF Projects/rtos-sensor-fusion/build/esp-idf/main/libmain.a",
@@ -461,6 +476,21 @@
             "managed_priv_reqs": [],
             "file": "C:/Users/user/espIDF Projects/rtos-sensor-fusion/build/esp-idf/rtos_core/librtos_core.a",
             "sources": [ "C:/Users/user/espIDF Projects/rtos-sensor-fusion/components/rtos_core/rtos_core.c" ],
+            "include_dirs": [ "include" ]
+        },
+        "sensors": {
+            "alias": "idf::sensors",
+            "target": "___idf_sensors",
+            "prefix": "idf",
+            "dir": "C:/Users/user/espIDF Projects/rtos-sensor-fusion/components/sensors",
+            "type": "LIBRARY",
+            "lib": "__idf_sensors",
+            "reqs": [ "freertos", "rtos_core", "esp_timer" ],
+            "priv_reqs": [],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "file": "C:/Users/user/espIDF Projects/rtos-sensor-fusion/build/esp-idf/sensors/libsensors.a",
+            "sources": [ "C:/Users/user/espIDF Projects/rtos-sensor-fusion/components/sensors/sensor.c" ],
             "include_dirs": [ "include" ]
         },
         "soc": {
@@ -1813,10 +1843,22 @@
             "dir": "C:/Users/user/espIDF Projects/rtos-sensor-fusion/main",
             "lib": "__idf_main",
             "reqs": [],
-            "priv_reqs": [ "rtos_core", "nvs_flash", "freertos" ],
+            "priv_reqs": [ "rtos_core", "nvs_flash", "freertos", "sensors", "fusion" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "include_dirs": [ "." ]
+        },
+        "fusion": {
+            "alias": "idf::fusion",
+            "target": "___idf_fusion",
+            "prefix": "idf",
+            "dir": "C:/Users/user/espIDF Projects/rtos-sensor-fusion/components/fusion",
+            "lib": "__idf_fusion",
+            "reqs": [ "sensors", "rtos_core", "freertos" ],
+            "priv_reqs": [],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "include_dirs": [ "include" ]
         },
         "rtos_core": {
             "alias": "idf::rtos_core",
@@ -1825,6 +1867,18 @@
             "dir": "C:/Users/user/espIDF Projects/rtos-sensor-fusion/components/rtos_core",
             "lib": "__idf_rtos_core",
             "reqs": [ "freertos", "esp_timer", "esp_hw_support" ],
+            "priv_reqs": [],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "include_dirs": [ "include" ]
+        },
+        "sensors": {
+            "alias": "idf::sensors",
+            "target": "___idf_sensors",
+            "prefix": "idf",
+            "dir": "C:/Users/user/espIDF Projects/rtos-sensor-fusion/components/sensors",
+            "lib": "__idf_sensors",
+            "reqs": [ "freertos", "rtos_core", "esp_timer" ],
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
