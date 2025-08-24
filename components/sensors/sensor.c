@@ -2,6 +2,7 @@
 #include <math.h>
 #include <stdlib.h>
 
+
 static const char *TAG = "SENSOR_A";
 static const char *TAG = "SENSOR_B";
 
@@ -108,12 +109,12 @@ void sensor_b_task(void *pvParameteres){
                 }
             }
             // Generate simulated sensor data
-            float time_sec = (float)actual_wake_time / 1000000.0f;
+            float time_sec = (float)actual_wake_time_us / 1000000.0f;
             float sensor_value = SENSOR_B_AMPLITUDE * cosf(2.0f * M_PI * SENSOR_B_FREQUENCY * time_sec) +
                                 SENSOR_B_NOISE_LEVEL * generate_sensor_noise();
             
             sensor_data_t data = {
-                .timestamp_us = actual_wake_time,
+                .timestamp_us = actual_wake_time_us,
                 .value = sensor_value,
                 .sensor_id = 2
             };
@@ -169,6 +170,11 @@ esp_err_t sensors_init(void){
     //create timers, writes a va;ue in the address
     ESP_ERROR_CHECK(esp_timer_create(&timer_a_config, &sensor_a_timer));
     ESP_ERROR_CHECK(esp_timer_create(&timer_b_config, &sensor_b_timer));
+
+    //create task
+    xTaskCreate(sensor_a_task, "Sensor A", SENSOR_A_TASK_STACK_SIZE, NULL, SENSOR_A_TASK_PRIORITY, &sensor_a_task_handle);
+    xTaskCreate(sensor_b_task, "sensor B", SENSOR_A_TASK_STACK_SIZE, NULL, SENSOR_B_TASK_PRIORITY, &sensor_b_task_handle);
+    
 
     //start the timers, uses the value that is already written(no '&')
     ESP_ERROR_CHECK(esp_timer_start_periodic(sensor_a_timer, SENSOR_A_PERIOD_US));
